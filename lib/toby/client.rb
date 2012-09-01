@@ -1,6 +1,7 @@
 require 'digest/md5'
 require 'uri'
 require 'net/http'
+require 'json'
 
 module Toby
 
@@ -38,18 +39,16 @@ module Toby
 
       api_params[:sign] = generate_sign(api_params)
 
-      p api_params
       uri = URI(@gateway_url)
       uri.query = URI.encode_www_form(api_params)
       res = Net::HTTP.get_response(uri)
 
-      res.body
+      JSON.parse(res.body, {symbolize_names: true})[:item_get_response]
     end
 
     protected
 
     def generate_sign(params)
-      p params
       params_str = params.sort.inject('') do |str, item|
         str + item.first.to_s + item.last.to_s
       end
