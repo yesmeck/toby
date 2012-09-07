@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'toby'
-  s.version     = '0.0.1-dev'
+  s.version     = '0.0.1'
   s.date        = '2012-09-01'
   s.summary     = "Taobao api wrapper."
   s.description = "Taobao api wrapper."
