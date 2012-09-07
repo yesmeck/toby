@@ -1,9 +1,7 @@
 module Toby
   module Request
-    class ItemPropsGet
-      def initialize
-        @api_paras = {}
-      end
+    class ItemPropsGet < Base
+      API_METHOD_NAME = 'taobao.itemprops.get'
 
       def child_path=(child_path)
         @child_path = child_path
@@ -102,14 +100,6 @@ module Toby
 
       def pid
         @pid
-      end
-
-      def get_api_method_name
-        'taobao.itemprops.get'
-      end
-
-      def get_api_paras
-        @api_paras
       end
     end
   end

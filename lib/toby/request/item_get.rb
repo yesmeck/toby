@@ -1,9 +1,7 @@
 module Toby
   module Request
-    class ItemGet
-      def initialize
-        @api_paras = {}
-      end
+    class ItemGet < Base
+      API_METHOD_NAME = 'taobao.item.get'
 
       def fields=(fields)
         @fields = fields
@@ -16,11 +14,6 @@ module Toby
       end
 
       def get_api_method_name
-        'taobao.item.get'
-      end
-
-      def get_api_paras
-        @api_paras
       end
 
       def check
@@ -31,4 +24,3 @@ module Toby
     end
   end
 end
-

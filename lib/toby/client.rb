@@ -26,12 +26,12 @@ module Toby
         v:            Toby::API_VERSION,
         format:       @format,
         sign_method:  @sign_method,
-        method:       request.get_api_method_name,
+        method:       request.api_method_name,
         timestamp:    Time.new.strftime("%Y-%m-%d %H:%M:%S"),
         partner_id:   Toby::SDK_VERSION
       }
 
-      api_params = request.get_api_paras
+      api_params = request.api_paras
       api_params.merge!(sys_params)
       api_params[:sign] = generate_sign(api_params)
 
