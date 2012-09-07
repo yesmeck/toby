@@ -3,6 +3,12 @@ module Toby
     class ItemPropsGet < Base
       API_METHOD_NAME = 'taobao.itemprops.get'
 
+      def initialize
+        super
+        @fields = 'pid,name,must,multi,prop_values'
+        @api_paras[:fields] = @fields
+      end
+
       def child_path=(child_path)
         @child_path = child_path
         @api_paras[:child_path] = @child_path
