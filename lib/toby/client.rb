@@ -32,18 +32,18 @@ module Toby
       }
 
       api_params = request.get_api_paras
-
       api_params.merge!(sys_params)
-
-
-
       api_params[:sign] = generate_sign(api_params)
 
+      response  = request(api_params)
+
+      parse(response)
+    end
+
+    def request(api_params)
       uri = URI(@gateway_url)
       uri.query = URI.encode_www_form(api_params)
-      res = Net::HTTP.get_response(uri)
-
-      JSON.parse(res.body, {symbolize_names: true})[:item_get_response]
+      Net::HTTP.get_response(uri)
     end
 
     protected
@@ -54,6 +54,10 @@ module Toby
       end
       str = Toby.secret_key.to_s + params_str + Toby.secret_key.to_s
       Digest::MD5.hexdigest(str).upcase
+    end
+
+    def parse(response)
+      JSON.parse(response.body, {symbolize_names: true})
     end
   end
 end
