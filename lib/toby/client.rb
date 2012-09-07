@@ -21,23 +21,26 @@ module Toby
     end
 
     def execute(request, session = nil)
+
+      @request = request
+
       sys_params = {
         app_key:      Toby.app_key,
         v:            Toby::API_VERSION,
         format:       @format,
         sign_method:  @sign_method,
-        method:       request.api_method_name,
+        method:       @request.api_method_name,
         timestamp:    Time.new.strftime("%Y-%m-%d %H:%M:%S"),
         partner_id:   Toby::SDK_VERSION
       }
 
-      api_params = request.api_paras
+      api_params = @request.api_paras
       api_params.merge!(sys_params)
       api_params[:sign] = generate_sign(api_params)
 
-      response  = request(api_params)
+      @response  = request(api_params)
 
-      parse(response)
+      parse
     end
 
     def request(api_params)
@@ -56,8 +59,10 @@ module Toby
       Digest::MD5.hexdigest(str).upcase
     end
 
-    def parse(response)
-      JSON.parse(response.body, {symbolize_names: true})
+    def parse
+      body = JSON.parse(@response.body, {symbolize_names: true})
+      response_key = @request.api_method_name.sub('taobao.', '').sub('.', '_') + '_response'
+      body[response_key.to_sym]
     end
   end
 end

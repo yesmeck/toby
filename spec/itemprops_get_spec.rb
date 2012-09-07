@@ -15,6 +15,6 @@ describe 'Item properties get' do
     request.cid = 50012377
     request.fields = 'name'
 
-    client.execute(request).should have_key(:itemprops_get_response)
+    client.execute(request).should have_key(:item_props)
   end
 end
