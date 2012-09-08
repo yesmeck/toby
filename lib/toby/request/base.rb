@@ -6,7 +6,7 @@ module Toby
       end
 
       def api_method_name
-        self.class::API_METHOD_NAME
+        self.class.to_s.sub('Toby::Request::', '').sub('::', '').split(/(?=[A-Z])/).join('.').downcase
       end
 
       def api_paras

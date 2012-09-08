@@ -2,8 +2,6 @@ module Toby
   module Request
     module Taobao
       class ItempropsGet < Base
-        API_METHOD_NAME = 'taobao.itemprops.get'
-
         def initialize
           super
           @fields = 'pid,name,must,multi,prop_values'
