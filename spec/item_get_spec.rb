@@ -10,7 +10,7 @@ describe "Item get" do
     Toby.secret_key = 'ebca8ce85d80e7c25d41f1d11fc308ab'
 
     client = Toby::Client.new
-    request = Toby::Request::ItemGet.new
+    request = Toby::Request::Taobao::ItemGet.new
 
     request.num_iid = 13364998803
 
