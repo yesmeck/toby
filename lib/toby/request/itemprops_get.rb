@@ -1,6 +1,6 @@
 module Toby
   module Request
-    class ItemPropsGet < Base
+    class ItempropsGet < Base
       API_METHOD_NAME = 'taobao.itemprops.get'
 
       def initialize
