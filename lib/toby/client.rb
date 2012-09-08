@@ -16,7 +16,6 @@ module Toby
     def initialize
       @gateway_url = 'http://gw.api.taobao.com/router/rest'
       @format = 'json'
-      @check_request = false
       @sign_method = 'md5'
     end
 

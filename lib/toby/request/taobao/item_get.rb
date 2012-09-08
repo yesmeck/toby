@@ -21,12 +21,6 @@ module Toby
 
         def get_api_method_name
         end
-
-        def check
-          Util::RequestCheck.check_not_null @fields, 'fields'
-          Util::RequestCheck.check_not_null @num_iid, 'num_iid'
-          Util::RequestCheck.check_min_value @num_iid, 1, 'num_iid'
-        end
       end
     end
   end
