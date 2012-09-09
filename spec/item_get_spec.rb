@@ -1,8 +1,6 @@
 # encoding: utf-8
 
-$: << '.'
-
-require 'lib/toby'
+require 'toby'
 
 describe "Item get" do
   it "should returns a taobao item, when it is executed." do

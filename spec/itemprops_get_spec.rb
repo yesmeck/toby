@@ -1,8 +1,6 @@
 # encoding: utf-8
 
-$: << '.'
-
-require 'lib/toby'
+require 'toby'
 
 describe 'Item properties get' do
   it 'should returns item properties list' do
