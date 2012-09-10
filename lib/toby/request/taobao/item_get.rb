@@ -17,9 +17,6 @@ module Toby
           @num_iid = num_iid
           @api_paras[:num_iid] = @num_iid
         end
-
-        def get_api_method_name
-        end
       end
     end
   end
