@@ -60,6 +60,9 @@ module Toby
 
     def parse
       body = JSON.parse(@response.body, {symbolize_names: true})
+      if !body[:error_response].nil?
+        raise body[:error_response][:msg]
+      end
       response_key = @request.api_method_name.sub('taobao.', '').sub('.', '_') + '_response'
       body[response_key.to_sym]
     end
