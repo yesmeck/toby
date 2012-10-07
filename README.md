@@ -1,6 +1,6 @@
 # Toby [![Build Status](https://secure.travis-ci.org/yesmeck/toby.png)](http://travis-ci.org/yesmeck/toby) [![Dependency Status](https://gemnasium.com/yesmeck/toby.png)](https://gemnasium.com/yesmeck/toby)
 
-Ruby 版淘宝 API SDK
+Ruby 版淘宝 API SDK，目前只实现了几个我自己需要用到的接口。
 
 ## 安装
 
@@ -23,3 +23,5 @@ request.fields = "detail_url,num_iid,title,nick,type,cid,seller_cids,pic_url,num
 item = client.execute(request)
 => #<Hashie::Mash cid=50010368 detail_url="http://item.taobao.com/item.htm?id=13364998803&spm=2014.12350568.0.0" location=#<Hashie::Mash city="嘉兴" state="浙江"> nick="勍杰旗舰店" num=992342 num_iid=13364998803 pic_url="http://img01.taobaocdn.com/bao/uploaded/i1/T1NV6JXltiXXbNURc1_042147.jpg" price="100.00" seller_cids=",469730817,437939819,437939818,441075878,437938900,437938899,437938898," title="正品开车防炫目司机墨镜太阳镜夜视镜偏光镜夹片钓鱼近视眼镜男女" type="fixed">
 ```
+
+更多例子可以看 [spec](https://github.com/yesmeck/toby/tree/master/spec/toby/request)
