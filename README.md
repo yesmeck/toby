@@ -1,6 +1,6 @@
 # Toby
 
-Ruby wrapper for the Taobao API
+Ruby 版淘宝 API SDK
 
 ## 安装
 
