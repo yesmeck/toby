@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Toby
   module Request
     class Base
