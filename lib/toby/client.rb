@@ -17,7 +17,7 @@ module Toby
       @format = 'json'
       @sign_method = 'md5'
       @app_key = options[:app_key] if !options[:app_key].nil?
-      @secret_key = options[:secret_key] if !options[:secret_key].nil?
+      @app_secret = options[:app_secret] if !options[:app_secret].nil?
     end
 
     def execute(request, session = nil)
@@ -68,7 +68,7 @@ module Toby
       params_str = params.sort.inject('') do |str, item|
         str + item.first.to_s + item.last.to_s
       end
-      str = @secret_key.to_s + params_str + @secret_key.to_s
+      str = @app_secret.to_s + params_str + @app_secret.to_s
       Digest::MD5.hexdigest(str).upcase
     end
 

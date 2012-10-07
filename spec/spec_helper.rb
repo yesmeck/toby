@@ -5,8 +5,8 @@ require "toby"
 shared_context "initialize client" do
   before do
     @app_key = "myfakeappkey"
-    @secret_key = "myfakesecretkey"
-    @client = Toby::Client.new(:app_key => @app_key, :secret_key => @secret_key)
+    @app_secret = "myfakeappsecret"
+    @client = Toby::Client.new(:app_key => @app_key, :app_secret => @app_secret)
   end
 end
 
