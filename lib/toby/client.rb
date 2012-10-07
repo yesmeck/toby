@@ -76,7 +76,8 @@ module Toby
       response_key_path = @request.api_method_name.sub('taobao.', '').
         gsub('.', '_') + '_response' + "." +
         @request.response_key_path
-      parsed_response = response_key_path.split(".").inject(@response) { |hash, key| hash[key] }
+
+      parsed_response = response_key_path.split(".").inject(@response) { |hash, key| hash[key.to_sym] }
       Hashie::Mash.new(parsed_response)
     end
   end

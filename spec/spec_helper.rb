@@ -16,5 +16,5 @@ end
 
 def fixture(file)
   contents = open(fixture_path + "/" + file).read
-  JSON.parse(contents, { symbolize_name: true })
+  JSON.parse(contents, { symbolize_names: true })
 end
