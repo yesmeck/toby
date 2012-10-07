@@ -2,7 +2,7 @@ module Toby
   module Request
     class Base
       def initialize
-        @api_paras = {}
+        @api_params = {}
         @raw = false
       end
 
@@ -10,8 +10,8 @@ module Toby
         self.class.to_s.sub('Toby::Request::', '').sub('::', '').split(/(?=[A-Z])/).join('.').downcase
       end
 
-      def api_paras
-        @api_paras
+      def api_params
+        @api_params
       end
 
       def raw=(raw)
@@ -24,7 +24,7 @@ module Toby
 
       def fields=(fields)
         @fields = fields
-        @api_paras[:fields] = @fields
+        @api_params[:fields] = @fields
       end
 
       def fields
@@ -40,7 +40,7 @@ module Toby
         if @app_params.include?(param)
           if method_name.to_s =~ /=$/
             self.instance_variable_set("@#{param}", args.first)
-            @api_paras[param] = args.first
+            @api_params[param] = args.first
           else
             self.instance_variable_get("@#{param}")
           end

@@ -5,7 +5,7 @@ module Toby
         def initialize
           super
           @fields = 'pid,name,must,multi,prop_values'
-          @api_paras[:fields] = @fields
+          @api_params[:fields] = @fields
           @response_key_path = "item_props.item_prop"
           @app_params = [
             :fields, :cid, :pid, :parent_pid, :is_key_prop, :is_sale_prop,
