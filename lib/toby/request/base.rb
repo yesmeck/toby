@@ -22,15 +22,6 @@ module Toby
         @raw
       end
 
-      def fields=(fields)
-        @fields = fields
-        @api_params[:fields] = @fields
-      end
-
-      def fields
-        @fields
-      end
-
       def response_key_path
         @response_key_path
       end
