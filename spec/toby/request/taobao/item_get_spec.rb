@@ -6,7 +6,7 @@ describe Toby::Request::Taobao::ItemGet do
   include_context "initialize client"
 
   it "should return a item" do
-    request = Toby::Request::Taobao::ItemGet.new
+    request = Toby::Request.create("taobao.item.get")
     request.num_iid = 13364998803
 
     @client.stub(:request).and_return(fixture("taobao/item_get.json"))

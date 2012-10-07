@@ -6,7 +6,7 @@ describe Toby::Request::Taobao::TaobaokeShopsConvert do
   include_context "initialize client"
 
   it "should return a taoboke shop list" do
-    request = Toby::Request::Taobao::TaobaokeShopsConvert.new
+    request = Toby::Request.create("taobao.taobaoke.shops.convert")
     request.seller_nicks = "jiezhixin8"
 
     @client.stub(:request).and_return(fixture("taobao/taobaoke_shops_convert.json"))

@@ -6,7 +6,7 @@ describe Toby::Request::Taobao::ItemcatsGet do
   include_context "initialize client"
 
   it 'should returns a taobao item cats list, when it is executed.' do
-    request = Toby::Request::Taobao::ItemcatsGet.new
+    request = Toby::Request.create("taobao.itemcats.get")
     request.parent_cid = 0
 
     @client.stub(:request).and_return(fixture("taobao/itemcats_get.json"))

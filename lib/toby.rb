@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require "toby/client"
+require "toby/request"
 require "toby/request/base"
 require "toby/request/taobao/item_get"
 require "toby/request/taobao/itemprops_get"
