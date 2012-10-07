@@ -78,7 +78,12 @@ module Toby
         @request.response_key_path
 
       parsed_response = response_key_path.split(".").inject(@response) { |hash, key| hash[key.to_sym] }
-      Hashie::Mash.new(parsed_response)
+
+      if parsed_response.kind_of?(Array)
+        parsed_response.map! { |item| Hashie::Mash.new(item) }
+      else
+        Hashie::Mash.new(parsed_response)
+      end
     end
   end
 end

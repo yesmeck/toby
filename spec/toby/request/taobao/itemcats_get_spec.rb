@@ -1,20 +1,15 @@
 # encoding: utf-8
 
-require 'spec_helper'
+describe Toby::Request::Taobao::ItemcatsGet do
+  include_context "initialize client"
 
-module Toby
-  module Request
-    module Taobao
-      describe 'Item cats get' do
-        it 'should returns a taobao item cats list, when it is executed.' do
-          client = Toby::Client.new
-          request = Toby::Request::Taobao::ItemcatsGet.new
+  it 'should returns a taobao item cats list, when it is executed.' do
+    request = Toby::Request::Taobao::ItemcatsGet.new
+    request.parent_cid = 0
 
-          request.parent_cid = 0
+    @client.stub(:request).and_return(fixture("taobao/itemcats_get.json"))
+    items = @client.execute(request)
 
-          client.execute(request).should have_key(:item_cats)
-        end
-      end
-    end
+    items.first.name.should eq "汽车\/用品\/配件\/改装"
   end
 end
