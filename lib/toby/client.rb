@@ -25,13 +25,13 @@ module Toby
       @request = request
 
       sys_params = {
-        app_key:      @app_key,
-        v:            Toby::API_VERSION,
-        format:       @format,
-        sign_method:  @sign_method,
-        method:       @request.api_method_name,
-        timestamp:    Time.new.strftime("%Y-%m-%d %H:%M:%S"),
-        partner_id:   Toby::SDK_VERSION
+        :app_key =>      @app_key,
+        :v =>            Toby::API_VERSION,
+        :format =>       @format,
+        :sign_method =>  @sign_method,
+        :method =>       @request.api_method_name,
+        :timestamp =>    Time.new.strftime("%Y-%m-%d %H:%M:%S"),
+        :partner_id =>   Toby::SDK_VERSION
       }
 
       api_params = @request.api_params.clone
@@ -59,7 +59,7 @@ module Toby
       uri = URI(@gateway_url)
       uri.query = URI.encode_www_form(api_params)
       response = Net::HTTP.get_response(uri)
-      JSON.parse(response.body, {symbolize_names: true})
+      JSON.parse(response.body, {:symbolize_names => true})
     end
 
     protected
