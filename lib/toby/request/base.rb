@@ -12,6 +12,15 @@ module Toby
       def api_paras
         @api_paras
       end
+
+      def fields=(fields)
+        @fields = fields
+        @api_paras[:fields] = @fields
+      end
+
+      def fields
+        @fields
+      end
     end
   end
 end
