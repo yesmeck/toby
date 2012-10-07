@@ -4,13 +4,10 @@ module Toby
   module Request
     module Tmall
       class SelectedItemsSearch < Base
-        def cid=(cid)
-          @cid = cid
-          @api_paras[:cid] = @cid
-        end
-
-        def cid
-          @cid
+        def initialize
+          super
+          @response_key_path = "item_list.selected_item"
+          @app_params = [:cid]
         end
       end
     end

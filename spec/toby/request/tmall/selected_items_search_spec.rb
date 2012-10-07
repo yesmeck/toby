@@ -1,22 +1,15 @@
 # encoding: utf-8
 
-require 'spec_helper'
+describe Toby::Request::Tmall::SelectedItemsSearch do
+  include_context "initialize client"
 
-module Toby
-  module Request
-    module Tmall
-      class SelectedItemsSearch
-        describe 'Tmall selected items search' do
-          it 'should returns a tamll selected items list, when it is executed.' do
-            client = Toby::Client.new
-            request = Toby::Request::Tmall::SelectedItemsSearch.new
+  it 'should returns a tamll selected items list.' do
+    request = Toby::Request::Tmall::SelectedItemsSearch.new
+    request.cid = 0
 
-            request.cid = 0
+    @client.stub(:request).and_return(fixture("tmall/selected_items_search.json"))
+    items = @client.execute(request)
 
-            client.execute(request).should have_key(:item_list)
-          end
-        end
-      end
-    end
+    items.first.track_iid.should eq "13786459483_track_11116"
   end
 end
