@@ -63,7 +63,7 @@ module Toby
       if !body[:error_response].nil?
         raise body[:error_response][:msg]
       end
-      response_key = @request.api_method_name.sub('taobao.', '').sub('.', '_') + '_response'
+      response_key = @request.api_method_name.sub('taobao.', '').gsub('.', '_') + '_response'
       body[response_key.to_sym]
     end
   end
