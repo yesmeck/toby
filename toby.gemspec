@@ -1,3 +1,7 @@
+# encoding: utf-8
+
+require File.expand_path("../lib/toby/version", __FILE__)
+
 Gem::Specification.new do |s|
   s.name        = "toby"
   s.description = "Taobao api wrapper."
@@ -6,7 +10,7 @@ Gem::Specification.new do |s|
   s.files       = `git ls-files`.split("\n")
   s.homepage    = "http://github.com/yesmeck/toby"
   s.summary     = s.description
-  s.version     = "0.0.1"
+  s.version     = Toby::VERSION
   s.add_dependency "faraday"
   s.add_dependency "faraday_middleware"
   s.add_dependency "hashie"
