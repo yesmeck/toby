@@ -1,0 +1,19 @@
+{
+    "taobaoke_shops_get_response": {
+        "taobaoke_shops": {
+            "taobaoke_shop": [{
+                "auction_count": "79",
+                "click_url": "http:\/\/s.click.taobao.com\/t?e=zGU34CA7K%2BPkqB04MQzdgG69RGcaJPb63yl1mhTdjUaYTEOiwvp%2BHs%2BsvXv3nKWpjovGeUe%2F4guWiDTeqWeSzvqkXS7n%2BRzFFiG42pWkevA7TglPrVM0YFJ%2BKidY%2B7genuzd9%2F%2FTcolEToRtLQ%3D%3D&pid=mm_13429391_0_0&spm=2014.12129701.1.0",
+                "commission_rate": "6.66",
+                "seller_credit": "13",
+                "seller_nick": "jiezhixin8",
+                "shop_id": 17440536,
+                "shop_title": "一米阳光官方旗舰店",
+                "shop_type": "C",
+                "total_auction": "7685",
+                "user_id": 72733634
+            }]
+        },
+        "total_results": 1
+    }
+}
