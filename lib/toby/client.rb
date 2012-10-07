@@ -34,7 +34,7 @@ module Toby
         partner_id:   Toby::SDK_VERSION
       }
 
-      api_params = @request.api_params
+      api_params = @request.api_params.clone
       api_params.merge!(sys_params)
       api_params[:sign] = generate_sign(api_params)
 
