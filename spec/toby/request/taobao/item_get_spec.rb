@@ -1,21 +1,16 @@
 # encoding: utf-8
 
-require 'spec_helper'
+describe Toby::Request::Taobao::ItemGet do
+  include_context "initialize client"
 
-module Toby
-  module Request
-    module Taobao
-      describe "Item get" do
-        it "should returns a taobao item, when it is executed." do
-          client = Toby::Client.new
-          request = Toby::Request::Taobao::ItemGet.new
+  it "should return a item" do
+    request = Toby::Request::Taobao::ItemGet.new
+    request.num_iid = 13364998803
 
-          request.num_iid = 13364998803
+    @client.stub(:request).and_return(fixture("taobao/item_get.json"))
+    item = @client.execute(request)
 
-          client.execute(request).should have_key(:item)
-        end
-      end
-    end
+    item.title.should eq "正品开车防炫目司机墨镜太阳镜夜视镜偏光镜夹片钓鱼近视眼镜男女"
   end
 end
 

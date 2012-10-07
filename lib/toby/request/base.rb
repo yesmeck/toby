@@ -3,6 +3,7 @@ module Toby
     class Base
       def initialize
         @api_paras = {}
+        @raw = false
       end
 
       def api_method_name
@@ -13,6 +14,14 @@ module Toby
         @api_paras
       end
 
+      def raw=(raw)
+        @raw = raw
+      end
+
+      def raw
+        @raw
+      end
+
       def fields=(fields)
         @fields = fields
         @api_paras[:fields] = @fields
@@ -20,6 +29,10 @@ module Toby
 
       def fields
         @fields
+      end
+
+      def response_key_path
+        @response_key_path
       end
     end
   end

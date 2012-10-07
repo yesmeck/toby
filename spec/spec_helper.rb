@@ -1,6 +1,20 @@
 # encoding: utf-8
 
-require 'toby'
+require "toby"
 
-Toby.app_key = '12350568'
-Toby.secret_key = 'ebca8ce85d80e7c25d41f1d11fc308ab'
+shared_context "initialize client" do
+  before do
+    @app_key = "myfakeappkey"
+    @secret_key = "myfakesecretkey"
+    @client = Toby::Client.new(:app_key => @app_key, :secret_key => @secret_key)
+  end
+end
+
+def fixture_path
+  File.expand_path("../fixtures", __FILE__)
+end
+
+def fixture(file)
+  contents = open(fixture_path + "/" + file).read
+  JSON.parse(contents, { symbolize_name: true })
+end
