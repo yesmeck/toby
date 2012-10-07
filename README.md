@@ -1,4 +1,4 @@
-# Toby
+# Toby [![Build Status](https://secure.travis-ci.org/yesmeck/toby.png)](http://travis-ci.org/yesmeck/toby) [![Dependency Status](https://gemnasium.com/yesmeck/toby.png)](https://gemnasium.com/yesmeck/toby)
 
 Ruby 版淘宝 API SDK
 
