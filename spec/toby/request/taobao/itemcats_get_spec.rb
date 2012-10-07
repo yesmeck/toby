@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+require "spec_helper"
+
 describe Toby::Request::Taobao::ItemcatsGet do
   include_context "initialize client"
 
