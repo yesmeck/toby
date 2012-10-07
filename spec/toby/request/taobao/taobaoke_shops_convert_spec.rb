@@ -1,18 +1,15 @@
 # encoding: utf-8
 
-module Toby
-  module Request
-    module Taobao
-      describe 'Taobaoke shops convert' do
-        it "should return a taoboke shop" do
-          client = Toby::Client.new
-          request = Toby::Request::Taobao::TaobaokeShopsConvert.new
+describe Toby::Request::Taobao::TaobaokeShopsConvert do
+  include_context "initialize client"
 
-          request.seller_nicks = "jiezhixin8"
+  it "should return a taoboke shop list" do
+    request = Toby::Request::Taobao::TaobaokeShopsConvert.new
+    request.seller_nicks = "jiezhixin8"
 
-          client.execute(request).should have_key(:taobaoke_shops)
-        end
-      end
-    end
+    @client.stub(:request).and_return(fixture("taobao/taobaoke_shops_convert.json"))
+    shops = @client.execute(request)
+
+    shops.first.shop_title.should eq "一米阳光官方旗舰店"
   end
 end
