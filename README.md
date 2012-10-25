@@ -1,6 +1,6 @@
 # Toby [![Build Status](https://secure.travis-ci.org/yesmeck/toby.png)](http://travis-ci.org/yesmeck/toby) [![Dependency Status](https://gemnasium.com/yesmeck/toby.png)](https://gemnasium.com/yesmeck/toby)
 
-Ruby 版淘宝 API SDK，目前只实现了几个我自己需要用到的接口。
+Ruby 版淘宝 API SDK，目前只实现了几个我自己需要用到的接口，不过要扩展也很容易，欢迎 fork。
 
 ## 安装
 
