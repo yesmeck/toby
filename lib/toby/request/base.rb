@@ -30,7 +30,7 @@ module Toby
 
       def method_missing(method_name, *args, &block)
         param = method_name.to_s.sub(/=$/, '').to_sym
-        if @app_params.include?(param)
+        if @request_params.include?(param)
           if method_name.to_s =~ /=$/
             self.instance_variable_set("@#{param}", args.first)
             @api_params[param] = args.first

@@ -9,7 +9,7 @@ module Toby
           @fields = 'cid,parent_cid,name,is_parent'
           @api_params[:fields] = @fields
           @response_key_path = "item_cats.item_cat"
-          @app_params = [:fields, :cids, :parent_cid]
+          @request_params = [:fields, :cids, :parent_cid]
         end
       end
     end

@@ -7,7 +7,7 @@ module Toby
         def initialize
           super
           @response_key_path = "item_list.selected_item"
-          @app_params = [:cid]
+          @request_params = [:cid]
         end
       end
     end
