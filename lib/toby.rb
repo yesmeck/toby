@@ -8,6 +8,7 @@ require "toby/request/taobao/itemprops_get"
 require "toby/request/taobao/itemcats_get"
 require "toby/request/taobao/taobaoke_shops_convert"
 require "toby/request/taobao/taobaoke_shops_get"
+require "toby/request/taobao/taobaoke_items_get"
 require "toby/request/tmall/selected_items_search"
 
 module Toby
