@@ -18,6 +18,7 @@ module Toby
       @sign_method = 'md5'
       @app_key = options[:app_key] if !options[:app_key].nil?
       @app_secret = options[:app_secret] if !options[:app_secret].nil?
+      @total_results = 0;
     end
 
     def execute(request, session = nil)
@@ -62,6 +63,10 @@ module Toby
       JSON.parse(response.body, {:symbolize_names => true})
     end
 
+    def total_results
+      @total_results
+    end  
+
     protected
 
     def generate_sign(params)
@@ -76,6 +81,11 @@ module Toby
       response_key_path = @request.api_method_name.sub('taobao.', '').
         gsub('.', '_') + '_response' + "." +
         @request.response_key_path
+
+      total_results_path = @request.api_method_name.sub('taobao.', '').
+        gsub('.', '_') + '_response' + ".total_results" 
+
+      @total_results = total_results_path.split(".").inject(@response) {|hash, key| hash[key.to_sym]}
 
       parsed_response = response_key_path.split(".").inject(@response) { |hash, key| hash[key.to_sym] }
 
