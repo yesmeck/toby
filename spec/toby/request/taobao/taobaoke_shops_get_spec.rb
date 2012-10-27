@@ -13,5 +13,6 @@ describe Toby::Request::Taobao::TaobaokeShopsGet do
     shops = @client.execute(request)
 
     shops.first.shop_title.should eq "一米阳光官方旗舰店"
+    shops.total_results.should eq 1
   end
 end

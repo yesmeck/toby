@@ -13,5 +13,6 @@ describe Toby::Request::Taobao::TaobaokeItemsGet do
 
         items = @client.execute(request)
         items.first.num_iid.should eq 18083496676
+        items.total_results.should eq 3703416
     end
 end
