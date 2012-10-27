@@ -81,6 +81,13 @@ module Toby
 
       if parsed_response.kind_of?(Array)
         parsed_response.map! { |item| Hashie::Mash.new(item) }
+        begin
+          total_results_key_path = response_key_path.split(".").first + ".total_results"
+          parsed_response.total_results = total_results_key_path.split(".").inject(@response) { |hash, key| hash[key.to_sym] }
+        rescue
+          # do nothing
+        end
+        parsed_response
       else
         Hashie::Mash.new(parsed_response)
       end
