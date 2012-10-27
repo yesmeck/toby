@@ -39,7 +39,21 @@ puts items.total_results
 
 更多例子可以看 [spec](https://github.com/yesmeck/toby/tree/master/spec/toby/request) 。
 
-## License
+## 更新日志
+
+### 0.0.3
+
+* 增加获取淘宝返回结果中的 total_results
+
+### 0.0.2
+
+* 增加 taobao.taobaoke.items.get 接口（by @amoydavid）
+
+### 0.0.1
+
+First release.
+
+## 授权
 
 DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
                    Version 2, December 2004
