@@ -60,8 +60,6 @@ class Toby::Client
     JSON.parse(response.body, {:symbolize_names => true})
   end
 
-  protected
-
   def generate_sign(params)
     params_str = params.sort.inject('') do |str, item|
       str + item.first.to_s + item.last.to_s
@@ -69,6 +67,8 @@ class Toby::Client
     str = @app_secret.to_s + params_str + @app_secret.to_s
     Digest::MD5.hexdigest(str).upcase
   end
+
+  protected
 
   def parse
     response_key_path = @request.api_method_name.sub('taobao.', '').
