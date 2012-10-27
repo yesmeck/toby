@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require "extension/array"
+require "extension/hash"
 require "toby/client"
 require "toby/request"
 require "toby/request/base"

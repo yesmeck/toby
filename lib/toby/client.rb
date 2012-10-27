@@ -77,13 +77,13 @@ module Toby
         gsub('.', '_') + '_response' + "." +
         @request.response_key_path
 
-      parsed_response = response_key_path.split(".").inject(@response) { |hash, key| hash[key.to_sym] }
+      parsed_response = @response.fetch_chain(response_key_path)
 
       if parsed_response.kind_of?(Array)
         parsed_response.map! { |item| Hashie::Mash.new(item) }
         begin
           total_results_key_path = response_key_path.split(".").first + ".total_results"
-          parsed_response.total_results = total_results_key_path.split(".").inject(@response) { |hash, key| hash[key.to_sym] }
+          parsed_response.total_results = @response.fetch_chain(total_results_key_path)
         rescue
           # do nothing
         end
