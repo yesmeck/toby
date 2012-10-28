@@ -79,12 +79,8 @@ class Toby::Client
 
     if parsed_response.kind_of?(Array)
       parsed_response.map! { |item| Hashie::Mash.new(item) }
-      begin
-        total_results_key_path = response_key_path.split(".").first + ".total_results"
-        parsed_response.total_results = @response.fetch_chain(total_results_key_path)
-      rescue
-        # do nothing
-      end
+      total_results_key_path = response_key_path.split(".").first + ".total_results"
+      parsed_response.total_results = @response.fetch_chain(total_results_key_path)
       parsed_response
     else
       Hashie::Mash.new(parsed_response)
