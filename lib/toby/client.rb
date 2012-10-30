@@ -74,14 +74,19 @@ class Toby::Client
     response_key_path = @request.api_method_name.sub('taobao.', '').
       gsub('.', '_') + '_response' + "." +
       @request.response_key_path
+    total_results_key_path = response_key_path.split(".").first + ".total_results"
 
     parsed_response = @response.fetch_chain(response_key_path)
+    total_results = @response.fetch_chain(total_results_key_path)
+
+    # 某些搜索的 api 的返回结果为空的话就不会有我们的 key
+    if parsed_response.nil? && total_results == 0
+      parsed_response = []
+    end
 
     if parsed_response.kind_of?(Array)
+      parsed_response.total_results = total_results
       parsed_response.map! { |item| Hashie::Mash.new(item) }
-      total_results_key_path = response_key_path.split(".").first + ".total_results"
-      parsed_response.total_results = @response.fetch_chain(total_results_key_path)
-      parsed_response
     else
       Hashie::Mash.new(parsed_response)
     end
