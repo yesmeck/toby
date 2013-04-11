@@ -39,7 +39,8 @@ class Toby::Client
     @response  = request(api_params)
 
     if !@response[:error_response].nil?
-      raise @response[:error_response][:msg]
+      error = @response[:error_response]
+      raise "#{error[:code]}:#{error[:msg]} - #{error[:sub_msg]}"
     end
 
     if @request.raw
