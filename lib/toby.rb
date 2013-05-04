@@ -16,6 +16,7 @@ require "toby/request/taobao/sellercats_list_get"
 require "toby/request/taobao/taobaoke_shops_convert"
 require "toby/request/taobao/taobaoke_shops_get"
 require "toby/request/taobao/taobaoke_items_get"
+require "toby/request/taobao/taobaoke_items_coupon_get"
 require "toby/request/taobao/taobaoke_items_detail_get"
 require "toby/request/tmall/selected_items_search"
 
